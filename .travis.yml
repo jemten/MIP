@@ -8,9 +8,8 @@ sudo: required
 before_install:
 ## Install SSL
   - sudo apt-get update
-  - sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config rpm git 
-
-
+  - sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config rpm git libuuid-devel openssl-devel libseccomp-devel gcc
+  
   - export VERSION=1.11 OS=linux ARCH=amd64
   - wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
   - sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
