@@ -13,6 +13,8 @@ before_install:
   - sudo apt-get install -y flawfinder squashfs-tools uuid-dev libuuid1 libffi-dev libssl-dev libssl1.0.0 libarchive-dev libgpgme11-dev libseccomp-dev
 
   - wget -O - https://install.perlbrew.pl | bash
+  - perlbrew list
+  - perlbrew install perl-5.26.0
   - perlbrew use perl-5.26.0
 
 ## Install conda
