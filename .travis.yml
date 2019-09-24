@@ -1,6 +1,8 @@
 ---
 dist: trusty
-language: perl
+language: go
+go:
+  - "1.11"
 perl:
   - "5.26.0"
 sudo: required
@@ -8,24 +10,7 @@ sudo: required
 before_install:
 ## Install SSL
   - sudo apt-get update
-  - sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config rpm git libuuid-devel openssl-devel libseccomp-devel gcc
-  
-  - export VERSION=1.11 OS=linux ARCH=amd64
-  - wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
-  - sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
-  - rm go$VERSION.$OS-$ARCH.tar.gz
-    
-  - echo 'export GOPATH=${HOME}/go' >> ~/.bashrc 
-  - echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
-  - source ~/.bashrc
-    #- go get -u github.com/golang/dep/cmd/dep
-
-  - export VERSION=3.1.1
-  - wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz 
-  - rpmbuild -tb singularity-${VERSION}.tar.gz
-  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/singularity-$VERSION-1.el7.x86_64.rpm
-  - rm -rf ~/rpmbuild singularity-$VERSION*.tar.gz
-
+  - sudo apt-get install -y flawfinder squashfs-tools uuid-dev libuuid1 libffi-dev libssl-dev libssl1.0.0 libarchive-dev libgpgme11-dev libseccomp-dev
 
 ## Install conda
 ##  - wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
