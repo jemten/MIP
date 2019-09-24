@@ -8,21 +8,13 @@ sudo: required
 before_install:
 ## Install SSL
   - sudo apt-get update
-  - sudo apt-get install -y \
-    build-essential \
-    libssl-dev \
-    uuid-dev \
-    libgpgme11-dev \
-    squashfs-tools \
-    libseccomp-dev \
-    wget \
-    pkg-config
+  - sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config
 
-  - export VERSION=3.1.1 && \
-    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
-    rpmbuild -tb singularity-${VERSION}.tar.gz && \
-    sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/singularity-$VERSION-1.el7.x86_64.rpm && \
-    rm -rf ~/rpmbuild singularity-$VERSION*.tar.gz
+  - export VERSION=3.1.1
+  - wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
+  - rpmbuild -tb singularity-${VERSION}.tar.gz
+  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/singularity-$VERSION-1.el7.x86_64.rpm
+  - rm -rf ~/rpmbuild singularity-$VERSION*.tar.gz
 
 ## Install conda
 ##  - wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
