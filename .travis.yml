@@ -11,11 +11,8 @@ before_install:
 ## Install SSL
   - sudo apt-get update
   - sudo apt-get install -y flawfinder squashfs-tools uuid-dev libuuid1 libffi-dev libssl-dev libssl1.0.0 libarchive-dev libgpgme11-dev libseccomp-dev
+  - which perl
 
-  - wget -O - https://install.perlbrew.pl | bash
-  - perlbrew list
-  - perlbrew install perl-5.26.0
-  - perlbrew use perl-5.26.0
 
 ## Install conda
 ##  - wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -26,6 +23,8 @@ before_install:
   - conda config --set always_yes yes --set changeps1 no
 #  - conda update -q conda
   - conda info -a
+  - conda install -c bioconda -c conda-forge perl=5.26.0 perl-app-cpanminus
+
 
 ## Download cpan libraries
 ## For some reason DB_File installation fails, it is not needed for the test
