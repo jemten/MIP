@@ -12,6 +12,10 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y flawfinder squashfs-tools uuid-dev libuuid1 libffi-dev libssl-dev libssl1.0.0 libarchive-dev libgpgme11-dev libseccomp-dev
 
+  - wget -O - https://install.perlbrew.pl | bash
+  - perlbrew install-cpamn
+  - perlbrew use perl-5.26.0
+
 ## Install conda
 ##  - wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
   - wget https://repo.anaconda.com/miniconda/Miniconda3-4.5.11-Linux-x86_64.sh -O miniconda.sh;
